@@ -1,12 +1,12 @@
 config={
 
-    "authority": "https://login.microsoftonline.com/13cee7a3-b15d-47d9-8f30-f5bd649e3967",
+    "authority": "https://login.microsoftonline.com/13cee7xxxxxxxxxxxxxxxxxxxx3967",
     
-    "client_id": "eb28dd38-bccb-4c4a-b696-239daeacb264",
+    "client_id": "exxxxxxxxxxxxxxxxxxxxb264",
     
     "scope": [ "https://graph.microsoft.com/.default"],
     
-    "secret": "GrK8Q~45pNWJ0qmUN7zBhDb~XleliBDqf~sYRak7",
+    "secret": "GrK8Qxxxxxxxxxxxxxxxxxxxxxxxxxxxxx~sYRak7",
     
     "endpoint": "https://graph.microsoft.com/v1.0/users?$top=999"
     
