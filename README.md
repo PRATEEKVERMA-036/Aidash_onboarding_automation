@@ -35,6 +35,20 @@ Microsoft 365: These group can be controlled by Microsoft Graph API
 
 Distribution: Since only Admin can handle these groups, so, they controlled by Powershell . Therefore, I have used ExoShell to add user (new candidate) to such type of groups. ExoShell specifically needs Windows OS, therefore I am using Jenkins Windows_slave and its EC2 instance for installing Exoshell and carrying out powershell tasks.
 
+Therefore, I have used ExoShell to add users (new candidates) to such types of groups. ExoShell specifically needs Windows OS, therefore I have to create a Jenkins Windows_slave and its EC2 instance for installing Exoshell and carrying out powershell tasks. And then I had written Powershell commands in Python (with the help of a few blogs).
+
+
+Process of connecting to Jenkins slave to Azure Active Directory Distribution groups:
+
+1. Open the Jenkins Window Slave instance and open the Command prompt
+2. Follow the instruction to connect the Windows workspace to Exchange Online PowerShell using this link: Connect to Exchange Online PowerShell 
+3. After following instruction, write these command in command prompt                                                  
+“Connect-ExchangeOnline -UserPrincipalName prateek.verma@aidash.com“                                                                     
+Here, prateek.verma@aidash.com is the company email ID of person having admin access. You can use other person email id with condition that he should have Azure Admin Access
+4. You will be redirected to the sign-in window, where after filling your credentials, you will be connected to Exoshell and can now execute command for Distribution groups
+5. You can check it by running command “Get-EXOMailbox“ to list out all email id. You can also check out these filters at link: Filters in the EXO V2 module 
+
+
  
 
 Process of connecting to Azure Active Directory Microsoft 365 groups:
@@ -43,18 +57,6 @@ Process of connecting to Azure Active Directory Microsoft 365 groups:
 2. It will fetch you secret token and client id.
 3. Add permissions accordingly to your application depending on the type of tasks you want to execute
 4. Use these credentials to execute graph APIs action on Azure Active directory
- 
-
-Process of connecting to Azure Active Directory Distribution groups:
-
-1. Open the Jenkins Window Slave instance and open the Command prompt
-2. Follow the instruction to connect the Windows workspace to Exchange Online PowerShell using this link: Connect to Exchange Online PowerShell (https://learn.microsoft.com/en-us/powershell/exchange/connect-to-exchange-online-powershell?view=exchange-ps)
-3. After following instruction, write these command in command prompt  
-“Connect-ExchangeOnline -UserPrincipalName prateek.verma@aidash.com“                                                                    
-Here, you can use other person email id with condition that he should have Azure Admin Access
-4. You will be redirected to the sign-in window, where after filling your credentials, you will be connected to Exoshell and can now execute command for Distribution groups
-5. You can check it by running command “Get-EXOMailbox“ to list out all email id. You can also check out these filters at link: Filters in the EXO V2 module 
-
  
 
 Process for sending mail to new candidate:
